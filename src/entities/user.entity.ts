@@ -28,7 +28,6 @@ import {
     @Column({ type: "varchar", nullable: true })
     reset_password: string | null | undefined;
   
-   
     @BeforeInsert()
     @BeforeUpdate()
     hashPassword() {
