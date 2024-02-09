@@ -1,16 +1,17 @@
 import { Router } from "express";
 import { createUserService } from "../services/user/CreateUser.service";
 import { readUserService } from "../services/user/ReadUser.service";
+import { readUserController } from "../controllers/users.controllers";
 
-export const usersRouter = Router();
+const usersRouter = Router();
 
-usersRouter.post(
-    "/users",
+usersRouter.post("",
     createUserService
   );
   
 usersRouter.get(
-  "/users",
-  readUserService
+  "",
+  readUserController
 );
 
+export default usersRouter;

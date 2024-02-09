@@ -7,7 +7,6 @@ const app = express()
 
 app.use(express.json())
 app.use('/',router)
-app.use(handdleError);
-
+app.use(handdleError)
 
 export default app
