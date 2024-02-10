@@ -1,14 +1,17 @@
 import { AppDataSource } from "../../data-source";
 import { User } from "../../entities";
-import { IUserRepo } from "../../interfaces/user.interfaces";
+import { IUser, IUserCreate, IUserRepo } from "../../interfaces/user.interfaces";
+import { returnUserSchema } from "../../schemas/user.schemas";
 
-export const createUserService = async (userData:any) => {
+export const createUserService = async (userData:IUserCreate): Promise<IUser> => {
 
   const userRepository: IUserRepo = AppDataSource.getRepository(User);
 
-  const newUser = userRepository.create(userData);
+  const newUser: User = userRepository.create(userData);
 
-  const savedUser = await userRepository.save(newUser);
+  const savedUser: User = await userRepository.save(newUser);
   
-  return savedUser;
+  const returnUser: IUser = returnUserSchema.parse(savedUser)
+
+  return returnUser
 };

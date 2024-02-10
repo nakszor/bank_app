@@ -23,10 +23,7 @@ import {
     password: string;
   
     @Column({ type: "varchar", length: 11 })
-    celphone: string;
-  
-    @Column({ type: "varchar", nullable: true })
-    reset_password: string | null | undefined;
+    phoneNumber: string;
   
     @BeforeInsert()
     @BeforeUpdate()
