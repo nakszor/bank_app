@@ -10,10 +10,9 @@ function isPasswordSafe(value:any) {
 }
 
 const createUserSchema = z.object({
-    uuid: z.string(),
     name: z.string(),
     email: z.string(),
-    password: z.string().refine(value => isPasswordSafe(value), {
+    password: z.string().min(8).refine(value => isPasswordSafe(value), {
         message: "Password must contain at least one lowercase letter, one uppercase letter, one number, and one symbol"
     }),
     phoneNumber: z.string(),
