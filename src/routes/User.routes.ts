@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createUserController, readUserController } from "../controllers/users.controllers";
+import { createUserController, readUserController, updateUserController } from "../controllers/users.controllers";
 import { validateDataMiddleware } from "../middlewares";
 import { createUserSchema } from "../schemas/user.schemas";
 
@@ -13,5 +13,7 @@ usersRouter.get(
   "",
   readUserController
 );
+
+usersRouter.patch("/:uuid", updateUserController)
 
 export default usersRouter;
